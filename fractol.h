@@ -1,10 +1,7 @@
-
-
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
 #include "mlx_linux/mlx.h"
-#include "libft/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -25,12 +22,9 @@
 #define UP_ARROW 65362
 #define DOWN_ARROW 65364
 
-// extra for zooming 
+// extra for zooming
 #define Z_KEY 122
-#define A_KEY 97
-#define S_KEY 115
-#define W_KEY 119
-#define D_KEY 100
+#define O_KEY 111
 
 typedef struct s_img
 {
@@ -59,6 +53,12 @@ typedef struct s_complex
     double y;
 } t_complex;
 
+// libft funcs
+void ft_putchar_fd(char c, int fd);
+void ft_putstr_fd(char *s, int fd);
+size_t ft_strlen(const char *s);
+int ft_strncmp(const char *s1, const char *s2, size_t n);
+
 // main functions
 void fractal_init(t_fractal *fractal);
 void draw_fractal(t_fractal *fractal);
@@ -69,7 +69,8 @@ double map(double coord, double range, double min, double max);
 
 // events
 int handle_key(int keycode, t_fractal *fractal);
-
+int mouse_hook(int button, int x, int y, t_fractal *fractal);
+void handle_coordinates(int x, int y, t_fractal *fractal, int max_iter);
 // utils functions
 int free_close(t_fractal *fractal);
 void usage();

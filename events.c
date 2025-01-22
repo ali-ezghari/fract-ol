@@ -26,26 +26,29 @@ int handle_key(int keycode, t_fractal *fractal)
     {
         fractal->shift_y += 0.5;
     }
+    else if (keycode == O_KEY)
+    {
+        fractal->scale *= 1.1;
+    }
     else if (keycode == Z_KEY)
     {
         fractal->scale *= 0.9;
     }
-    else if (keycode == A_KEY)
+    draw_fractal(fractal);
+    return 0;
+}
+int mouse_hook(int button, int x, int y, t_fractal *fractal)
+{
+    if (button == 5)
     {
-        fractal->shift_x -= 0.005;
+        fractal->scale *= 0.9;
     }
-    else if (keycode == D_KEY)
+    else if (button == 4)
     {
-        fractal->shift_x += 0.005;
-    }
-    else if (keycode == S_KEY)
-    {
-        fractal->shift_y -= 0.005;
-    }
-    else if (keycode == W_KEY)
-    {
-        fractal->shift_y += 0.005;
+        fractal->scale *= 1.1;
     }
     draw_fractal(fractal);
+    x += 1; // to remove
+    y += 1; // to remove
     return 0;
 }

@@ -14,6 +14,7 @@ static void events_init(t_fractal *fractal)
              handle_key,
              fractal);
     mlx_hook(fractal->mlx_window, 17, 0, free_close, fractal);
+    mlx_mouse_hook(fractal->mlx_window, mouse_hook, fractal);
 }
 
 void fractal_init(t_fractal *fractal)
@@ -24,9 +25,9 @@ void fractal_init(t_fractal *fractal)
         mem_err();
     }
     fractal->mlx_window = mlx_new_window(fractal->mlx_connection,
-                                        WIDTH,
-                                        HEIGHT,
-                                        fractal->name);
+                                         WIDTH,
+                                         HEIGHT,
+                                         fractal->name);
     if (!fractal->mlx_window)
     {
         mlx_destroy_display(fractal->mlx_connection);
