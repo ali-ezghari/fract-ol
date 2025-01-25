@@ -1,6 +1,6 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-SRCS = utils.c events.c frac_render.c frac_init.c math_funcs.c fractol.c libft_funcs.c
+SRCS = utils.c events.c draw_frac.c frac_init.c calc_funcs.c fractol.c libft_funcs.c
 OBJS = $(SRCS:.c=.o)
 NAME = fractol
 
