@@ -1,5 +1,4 @@
 # fract-ol
-
 A graphical program written in C that visualizes mathematical fractals using the MiniLibX graphics library.
 
 ## Shapes
